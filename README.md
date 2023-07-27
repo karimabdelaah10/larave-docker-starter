@@ -18,9 +18,6 @@ docker exec -it container_name bash
 ```
 - in the container bash run the following commands
 ```bash
-composer install
+/bin/prepare_env.sh
 ```
-```bash
-cp .env.example .env
-```
- - edit the `.env` file and set you environment variables
+ - edit the `core/.env` file and set you environment variables

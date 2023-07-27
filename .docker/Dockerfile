@@ -23,6 +23,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ############################# Laravel App Config #############################
 COPY scripts/entrypoint.sh /tmp/entrypoint.sh
 RUN true
+COPY scripts/prepare_env.sh /bin/prepare_env.sh
+RUN chmod +x /bin/prepare_env.sh
 COPY core/ /var/www
 RUN true
 RUN chown -R www-data:www-data /var/www
