@@ -6,16 +6,13 @@ core/npm-debug.log
 core/yarn-error.log
 
 
-
-# Laravel 5 & Lumen specific
-core/public/storage
-core/public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
 core/storage/*.key
+core/storage/db-data/
+core/storage/logs/*
+core/storage/app/public/*
+core/storage/framework/sessions/*
+core/storage/framework/views/*
+core/storage/framework/cache/*
 core/.env
 core/.env.testing
 core/laravel-echo-server.lock
@@ -32,13 +29,12 @@ Homestead.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-storage/db-data/
 # Local History for Visual Studio Code
 .history/
 docker-data
 .idea
 .vscode
-core/storage/*
+
 core/composer.lock
 .env
 .docker-data
