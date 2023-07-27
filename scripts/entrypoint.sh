@@ -2,7 +2,6 @@
 
 cd /var/www
 
-mkdir -p storage/framework/cache/data
 php artisan route:trans:cache
 php artisan migrate --force
 php artisan cache:clear
