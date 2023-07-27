@@ -10,7 +10,7 @@ cp .env.example .env
 - edit the `.env` file and set you environment variables
 - run the app
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 - run bash in the app container
 ```bash
