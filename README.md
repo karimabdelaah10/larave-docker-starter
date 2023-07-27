@@ -14,7 +14,7 @@ docker-compose up -d
 ```
 - run bash in the app container
 ```bash
-docker-compose exec -it container_name bash
+docker exec -it container_name bash
 ```
 - in the container bash run the following commands
 ```bash
