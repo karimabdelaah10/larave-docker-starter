@@ -16,5 +16,9 @@ else
 
 fi
 
+npm install -g npm@9.8.1
+npm i
+
 php artisan key:generate
-find /var/www -exec chown -R nobody:www-data {} \; && find /var/www  -type f -exec chmod 664 {} \; && find /var/www -type d -exec chmod 775 {} \;
+
+npm run build
