@@ -16,9 +16,9 @@ else
 
 fi
 
-npm install -g npm@9.8.1
-npm i
-
+#npm install -g npm@9.8.1
+#npm i
+source ./bin/fix_permissions.sh
 php artisan key:generate
 
 npm run build
