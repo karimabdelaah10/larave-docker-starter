@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+//        \Swis\JsonApi\Client\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -193,6 +194,7 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
+        App\Modules\BaseApp\Providers\MattressServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 

@@ -27,6 +27,7 @@ COPY scripts/prepare_env.sh /bin/prepare_env.sh
 COPY scripts/fix_permissions.sh /bin/fix_permissions.sh
 
 RUN chmod +x /bin/prepare_env.sh
+RUN chmod +x /bin/fix_permissions.sh
 COPY core/ /var/www
 RUN true
 RUN chown -R www-data:www-data /var/www

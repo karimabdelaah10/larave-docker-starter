@@ -1,4 +1,4 @@
 <?php
 return[
-    'Settings' => 'Settings',
+    'Countries' => 'Countries',
 ];

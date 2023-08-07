@@ -3,7 +3,6 @@
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/dashboard_assets/js/apexcharts.min.js"></script>
 <script src="/dashboard_assets/js/toastr.min.js"></script>
 <!-- END: Page Vendor JS-->
 

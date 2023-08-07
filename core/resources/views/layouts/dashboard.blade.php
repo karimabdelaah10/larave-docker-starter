@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
 
-    <title> {{ env('APP_NAME') ?? null }}  @stack('title') </title>
+    <title> {{ env('APP_NAME') ?? null }} ||  @stack('title') </title>
 
     @include('layouts.partial.css')
 </head>
@@ -36,7 +36,11 @@
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                @include('layouts.partial.breadcrumb')
+            </div>
         </div>
+
         <div class="content-body">
             @yield('content')
         </div>

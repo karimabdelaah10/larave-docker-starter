@@ -15,10 +15,10 @@ else
     echo "$FILE created."
 
 fi
-
+php artisan migrate
 #npm install -g npm@9.8.1
 #npm i
-source ./bin/fix_permissions.sh
+#npm run build
+source /bin/fix_permissions.sh
 php artisan key:generate
 
-npm run build

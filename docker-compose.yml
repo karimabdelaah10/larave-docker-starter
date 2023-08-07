@@ -65,7 +65,7 @@ services:
 
 
 networks:
-  laravel-docker-starter-network:
+  starter-network:
     name: ${NETWORK_NAME}
     external: true
     driver: bridge
