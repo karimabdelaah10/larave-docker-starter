@@ -32,7 +32,7 @@
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                @include('admin.countries.form')
+                                @include('admin.countries.form' , ['row' => $country])
                             </div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

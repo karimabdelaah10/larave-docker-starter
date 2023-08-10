@@ -5,6 +5,7 @@ namespace App\Modules\Country\Controllers;
 use App\Http\Controllers\Controller;
 use App\Modules\BaseApp\Enums\BaseAppEnums;
 use App\Modules\Country\Country;
+use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
@@ -36,9 +37,9 @@ class CountryController extends Controller
 
     }
 
-    public function postCreate()
+    public function postCreate(Request $request)
     {
-
+        dd($request->all());
     }
 
     public function getEdit()

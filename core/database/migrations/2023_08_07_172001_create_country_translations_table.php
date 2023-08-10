@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('currency_code');
+            $table->string('locale')->index();
             $table->foreignId('country_id')->constrained('countries')->onDelete('cascade');
         });
     }

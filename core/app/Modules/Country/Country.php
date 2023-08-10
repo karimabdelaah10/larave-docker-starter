@@ -19,6 +19,7 @@ class Country extends Model
     ];
     public $translatedAttributes = [
         'name',
+        'currency_code'
     ];
     protected $casts = [
         'is_active' => 'boolean',
