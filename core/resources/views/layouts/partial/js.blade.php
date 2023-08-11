@@ -11,9 +11,7 @@
 <script src="/dashboard_assets/js/app.js"></script>
 <!-- END: Theme JS-->
 
-<!-- BEGIN: Page JS-->
-<script src="/dashboard_assets/js/dashboard-ecommerce.js"></script>
-<!-- END: Page JS-->
+@stack('js')
 
 <script>
     $(window).on('load', function () {
@@ -25,4 +23,11 @@
         }
     })
 </script>
-@stack('js')
+@if(
+    !empty($toastr) && isset($toastr['type']) ||
+    (session()->has('toastr') && !empty(session()->get('toastr'))) ||
+     count($errors->all())
+    )
+    @include('layouts.partial.toastr')
+@endif
+

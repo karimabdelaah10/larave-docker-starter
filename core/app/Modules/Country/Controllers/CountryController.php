@@ -39,6 +39,11 @@ class CountryController extends Controller
 
     public function postCreate(Request $request)
     {
+        $data['toastr'] = [
+            'type' => BaseAppEnums::SUCCESS,
+            'message' => 'message',
+            'title' => 'title'
+        ];
         dd($request->all());
     }
 

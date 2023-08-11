@@ -7,7 +7,11 @@ class BaseAppEnums
     public const
         COUNTRY = 'country',
         DASHBOARD = 'dashboard',
-        COUNTRY_MODULE_PREFIX = 'countries';
+        COUNTRY_MODULE_PREFIX = 'countries',
+        SUCCESS = 'success',
+        ERROR = 'error',
+        INFO = 'info',
+        WARNING = 'warning';
 
 
     public function getModules(): array

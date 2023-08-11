@@ -28,10 +28,9 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::group([
-    'prefix' => 'dashboard',
     'middleware' => ['auth', 'verified'],
 ], function () {
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
     require base_path('app/Modules/Country/routes/web.php');

@@ -39,6 +39,9 @@
     <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/vertical-menu.css">
     <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/form-validation.css">
     <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/authentication.css">
+    <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/ext-component-toastr.min.css">
+
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -82,6 +85,13 @@
         }
     })
 </script>
+@if(
+    !empty($toastr) && isset($toastr['type']) ||
+    (session()->has('toastr') && !empty(session()->get('toastr'))) ||
+     count($errors->all())
+    )
+    @include('layouts.partial.toastr')
+@endif
 </body>
 <!-- END: Body-->
 
