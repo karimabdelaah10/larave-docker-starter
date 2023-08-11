@@ -45,7 +45,7 @@
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
                                             <label class="form-label" for="login-password">Password</label><a
-                                                href="{{route('password.request')}}"><small>Forgot Password?</small></a>
+                                                href="{{route('password.request')}}"><small></small></a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
                                             <input class="form-control form-control-merge" id="login-password"
@@ -64,17 +64,11 @@
                                     </div>
                                     <button class="btn btn-primary w-100" tabindex="4">Sign in</button>
                                 </form>
-                                <p class="text-center mt-2"><span>New on our platform?</span><a
-                                        href="auth-register-cover.html"><span>&nbsp;Create an account</span></a></p>
-                                <div class="divider my-2">
-                                    <div class="divider-text">or</div>
-                                </div>
-                                <div class="auth-footer-btn d-flex justify-content-center"><a class="btn btn-facebook"
-                                                                                              href="#"><i
-                                            data-feather="facebook"></i></a><a class="btn btn-twitter white" href="#"><i
-                                            data-feather="twitter"></i></a><a class="btn btn-google" href="#"><i
-                                            data-feather="mail"></i></a><a class="btn btn-github" href="#"><i
-                                            data-feather="github"></i></a></div>
+                                <p class="text-center mt-2">
+                                    <a href="{{route('password.request')}}">
+                                        <span>&nbsp;Forgot Password?</span>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                         <!-- /Login-->
