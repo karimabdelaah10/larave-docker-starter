@@ -1,6 +1,9 @@
-<div class="col-{{$attributes['col'] ?? '5'}} form-col">
+<div class="col-md-{{$attributes['col'] ?? '6'}}  col-12">
     <div class="mb-1">
-        <label class="form-label" for="{{$name}}">
+        <label
+            class="form-label"
+            for="{{$name}}"
+        >
             {{$attributes['label']}}
             @if(!empty($attributes['required']) && $attributes['required'] ==1 )
                 <span class="text-danger">*</span>
@@ -9,10 +12,11 @@
         <input
             type="{{$type}}"
             name="{{$name}}"
-            class="{{$attributes['class']}}"
+            class="{{$attributes['class']}} form-control"
             id="{{$name}}"
             placeholder="{{$attributes['placeholder']}}"
-            required="{{$attributes['required']}}"
+            {!! isset($attributes['required']) && $attributes['required'] ==1 ? "required" : ''!!}
+            value="{{$value ?? null}}"
         >
     </div>
 </div>

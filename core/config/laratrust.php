@@ -99,7 +99,7 @@ return [
     |
     */
     'user_models' => [
-        'users' => \App\Models\User::class,
+        'users' => \App\Modules\User\User::class,
     ],
 
     /*

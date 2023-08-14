@@ -2,8 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Modules\User\User;
 use Illuminate\Database\Seeder;
 
 class SuperAdminSeeder extends Seeder
@@ -13,10 +12,14 @@ class SuperAdminSeeder extends Seeder
      */
     public function run(): void
     {
-        User::query()->create([
-            'name' => 'Super Admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('12345678'),
-        ]);
+        $email = 'super_admin@admin.com';
+        if (!User::query()->where('email', $email)->exists()) {
+            User::query()->create([
+                'name' => 'Super Admin',
+                'email' => $email,
+                'password' => '12345678',
+            ]);
+        }
+
     }
 }

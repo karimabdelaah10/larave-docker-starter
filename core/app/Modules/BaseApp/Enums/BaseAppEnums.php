@@ -7,7 +7,9 @@ class BaseAppEnums
     public const
         COUNTRY = 'country',
         DASHBOARD = 'dashboard',
+        APP_PREFIX = 'app',
         COUNTRY_MODULE_PREFIX = 'countries',
+        PROFILE_MODULE_PREFIX = 'profile',
         SUCCESS = 'success',
         ERROR = 'error',
         INFO = 'info',

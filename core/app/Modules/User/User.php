@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Modules\BaseApp\Traits\HasAttach;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -14,16 +15,19 @@ class User extends Authenticatable implements LaratrustUser
 {
     use HasRolesAndPermissions;
     use HasApiTokens, HasFactory, Notifiable;
+    use HasAttach;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'profile_picture'
     ];
 
     /**
@@ -44,4 +48,17 @@ class User extends Authenticatable implements LaratrustUser
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected static array $attachFields = [
+        'profile_picture' => [
+            'sizes' => ['small' => 'crop,400x300', 'large' => 'resize,800x600'],
+            'modulePath' => 'users/profiles',
+            'path' => 'uploads'
+        ],
+    ];
+    public function setPasswordAttribute($value)
+    {
+        if (trim($value)) {
+            $this->attributes['password'] = bcrypt(trim($value));
+        }
+    }
 }
