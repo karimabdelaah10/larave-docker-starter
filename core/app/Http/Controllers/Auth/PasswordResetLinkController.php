@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Modules\BaseApp\Enums\BaseAppEnums;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -42,7 +41,7 @@ class PasswordResetLinkController extends Controller
             return back()->with('toastr', [
                 'type' => BaseAppEnums::SUCCESS,
                 'message' =>  __($status),
-                'title' => 'Success',
+                'title' => __('app.success_message_title'),
             ]);
         } else {
             return back()->withInput($request->only('email'))

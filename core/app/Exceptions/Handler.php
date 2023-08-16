@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -45,4 +48,20 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof AuthenticationException) {
+            throw new HttpResponseException(response()->json(
+                ['errors' => [[
+                    'status' => 403,
+                    'title' => 'unauthorized_action',
+                    'detail' => trans('app.Unauthorized action Please Use Authorized Token')
+                ]]],
+                403
+            ));
+        }
+        return parent::render($request, $e);
+    }
+
 }

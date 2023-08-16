@@ -17,7 +17,7 @@
 
     <title> {{ env('APP_NAME') ?? null }} ||  @stack('title') </title>
 
-    @include('layouts.partial.css')
+    @include('layouts.partial.admin.css')
 </head>
 <!-- END: Head-->
 
@@ -27,9 +27,9 @@
       data-menu="vertical-menu-modern" data-col="">
 
 
-@include('layouts.partial.header')
+@include('layouts.partial.admin.header')
 
-@include('layouts.partial.side_bar')
+@include('layouts.partial.admin.side_bar')
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -37,7 +37,7 @@
     <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
             <div class="content-header-left col-md-9 col-12 mb-2">
-                @include('layouts.partial.breadcrumb')
+                @include('layouts.partial.admin.breadcrumb')
             </div>
         </div>
 
@@ -61,7 +61,7 @@
 <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
 <!-- END: Footer-->
 
-@include('layouts.partial.js')
+@include('layouts.partial.admin.js')
 </body>
 <!-- END: Body-->
 

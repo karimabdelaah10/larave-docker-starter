@@ -90,7 +90,7 @@
     (session()->has('toastr') && !empty(session()->get('toastr'))) ||
      count($errors->all())
     )
-    @include('layouts.partial.toastr')
+    @include('layouts.partial.admin.toastr')
 @endif
 </body>
 <!-- END: Body-->

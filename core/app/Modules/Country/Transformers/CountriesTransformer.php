@@ -17,7 +17,7 @@ class CountriesTransformer extends TransformerAbstract
             'id' => $country->id,
             'name' => $country->name,
             'country_code'=> $country->country_code,
-            'flag'=> $country->flag,
+            'flag'=> image($country->flag , 'large'),
             'is_active'=> $country->is_active,
             'created_at' => $country->created_at,
             'updated_at' => $country->updated_at,

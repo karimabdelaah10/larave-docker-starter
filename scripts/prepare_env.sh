@@ -24,5 +24,5 @@ php artisan key:generate
 php artisan storage:link
 php artisan migrate
 php artisan db:seed --class=SuperAdminSeeder
-
+php artisan jwt:secret
 /bin/fix_permissions.sh

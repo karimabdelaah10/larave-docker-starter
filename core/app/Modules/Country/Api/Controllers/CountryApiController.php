@@ -20,10 +20,10 @@ class CountryApiController extends BaseApiController
 
     public function index()
     {
-        $countries = $this->countryRepository->list(true);
+        $countries = $this->countryRepository->list(pagination: true, active: true);
         return $this->transformDataModInclude(
             $countries,
-            'government',
+            '',
             CountriesTransformer::class,
             ResourceEnums::COUNTRY,
             ''

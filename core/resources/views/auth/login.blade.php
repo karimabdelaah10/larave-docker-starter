@@ -16,7 +16,7 @@
                     <div class="auth-inner row m-0">
                         <!-- Brand logo-->
                         <a class="brand-logo" href="{{route('dashboard')}}">
-                            @include('layouts.partial.logo')
+                            @include('layouts.partial.admin.logo')
                         </a>
                         <!-- /Brand logo-->
                         <!-- Left Text-->

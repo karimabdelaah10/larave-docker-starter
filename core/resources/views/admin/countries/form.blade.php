@@ -1,72 +1,57 @@
-<!-- Start Text -->
 @foreach(config("translatable.locales") as $lang)
     @php
         $attributes=[
-            'class'=>'',
-            'label'=>trans('countries.name').' '.$lang,
-            'placeholder'=>trans('countries.name').' '.$lang,
+            'class'=>'form-control',
+            'col_class'=>'col-md-6',
+            'label'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.name').' '.$lang,
+            'placeholder'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.name').' '.$lang,
             'required'=>1,
             ];
     @endphp
     @include('admin.form.input',['type'=>'text','name'=>'name:'.$lang,'value'=> $row->name[$lang] ?? null,'attributes'=>$attributes])
 @endforeach
-<!-- End Text -->
-<!-- Start Select -->
+@foreach(config("translatable.locales") as $lang)
+    @php
+        $attributes=[
+            'class'=>'form-control',
+            'col_class'=>'col-md-6',
+            'label'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.currency_code').' '.$lang,
+            'placeholder'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.currency_code_placeholder' , [], $lang),
+            'required'=>1,
+            ];
+    @endphp
+    @include('admin.form.input',['type'=>'text','name'=>'currency_code:'.$lang,'value'=> $row->currency_code[$lang] ?? null,'attributes'=>$attributes])
+@endforeach
 @php
     $attributes=[
-        'class'=>'',
-        'label'=>trans('countries.name'),
-        'placeholder'=>trans('countries.name'),
+        'class'=>'form-control',
+        'col_class'=>'col-md-6',
+        'label'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.country_code'),
+        'placeholder'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.country_code_placeholder'),
         'required'=>1,
-        'col'=>12,
+        'minlength'=>2,
+        'maxlength'=>3,
         ];
 @endphp
-@include('admin.form.select',[
-    'type'=>'text',
-    'name'=>'name:',
-    'options'=> [] ,
-    'value'=> $row->name ?? null,'attributes'=>$attributes
-    ])
-<!-- End Select -->
-<!-- Start CheckBox -->
+@include('admin.form.input',['type'=>'text','name'=>'country_code','value'=> $row->country_code ?? null,'attributes'=>$attributes])
+
 @php
     $attributes=[
-        'class'=>'',
-        'label'=>'What is Your Favorite Pet?',
-        'placeholder'=>trans('countries.name'),
-        'required'=>1,
-        'col'=>12,
+        'col_class'=>'col-md-6',
+        'label'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.is_active'),
+        'required'=>1
         ];
 @endphp
-@include('admin.form.check_box',[
-    'name'=>'name:',
-    'options'=> [
-         1 => 'cow',
-         2 => 'lion',
-         3 => 'tiger',
-         4 => 'cat',
-         5 => 'dog',
-         6 => 'bird',
-         7 => 'fish',
-         8 => 'snake',
-         9 => 'monkey',
-         10 => 'elephant',
-        ] ,
-    'value'=> $row->name ?? null,'attributes'=>$attributes
-    ])
-<!-- End CheckBox -->
-<!-- Start TextArea -->
+@include('admin.form.boolean',['name'=>'is_active','value'=>$row->is_active ?? 1 ,$attributes])
+
 @php
     $attributes=[
-        'class'=>'',
-        'label'=>'What is Your Favorite Pet?',
-        'placeholder'=>trans('countries.name'),
-        'required'=>1,
-        'col'=>12,
+        'id'=>'flag',
+        'col_class'=>'col-md-6',
+        'class'=>'form-control',
+        'label'=>__(\App\Modules\BaseApp\Enums\BaseAppEnums::COUNTRY_MODULE_PREFIX . '.flag'),
+        'required' => !$row->id,
+        'help'=> 'accepted types, "jpg,png,jpeg" max size 2MB'
         ];
 @endphp
-@include('admin.form.text_area',[
-    'name'=>'textArea:',
-    'value'=> $row->name ?? null,'attributes'=>$attributes
-    ])
-<!-- End TextArea -->
+@include('admin.form.file',['name'=>'flag', 'id'=>'flag' ,'value'=>$row->flag ?? null ,'attributes'=>$attributes])

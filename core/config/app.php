@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-//        \Swis\JsonApi\Client\Providers\ServiceProvider::class,
+        \Swis\JsonApi\Client\Providers\ServiceProvider::class,
 
         /*
          * Application Service Providers...

@@ -10,8 +10,9 @@ use Illuminate\Notifications\Notifiable;
 use Laratrust\Contracts\LaratrustUser;
 use Laratrust\Traits\HasRolesAndPermissions;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements LaratrustUser
+class User extends Authenticatable implements LaratrustUser, JWTSubject
 {
     use HasRolesAndPermissions;
     use HasApiTokens, HasFactory, Notifiable;
@@ -26,10 +27,14 @@ class User extends Authenticatable implements LaratrustUser
     protected $fillable = [
         'name',
         'email',
+        'country_id',
+        'mobile_number',
+        'otp',
+        'confirmed',
         'password',
+        'language',
         'profile_picture'
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -55,10 +60,14 @@ class User extends Authenticatable implements LaratrustUser
             'path' => 'uploads'
         ],
     ];
-    public function setPasswordAttribute($value)
+
+    public function getJWTIdentifier()
     {
-        if (trim($value)) {
-            $this->attributes['password'] = bcrypt(trim($value));
-        }
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

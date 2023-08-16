@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use App\Modules\User\User;
+use App\Modules\User\UsersEnum;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,13 @@ class LoginRequest extends FormRequest
 
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
+            ]);
+        }elseif (\auth()->user()?->type != UsersEnum::ADMIN){
+            \auth()->logout();
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'email' => trans('auth.not_admin'),
             ]);
         }
 

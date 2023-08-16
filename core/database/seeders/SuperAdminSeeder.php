@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Modules\User\User;
+use App\Modules\User\UsersEnum;
 use Illuminate\Database\Seeder;
 
 class SuperAdminSeeder extends Seeder
@@ -17,7 +18,8 @@ class SuperAdminSeeder extends Seeder
             User::query()->create([
                 'name' => 'Super Admin',
                 'email' => $email,
-                'password' => '12345678',
+                'type' => UsersEnum::ADMIN,
+                'password' => bcrypt('12345678'),
             ]);
         }
 

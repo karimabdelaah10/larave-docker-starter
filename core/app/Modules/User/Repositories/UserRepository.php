@@ -23,11 +23,21 @@ class UserRepository
 
     public function update($data, $id)
     {
-        $user = $this->model->find($id);
-        if ($user) {
-            return $user->update($data);
-        }
-        return false;
+        return $this->model->findOrFail($id)->update($data);
+    }
 
+    public function findByEmail($mail)
+    {
+        return $this->model->where('email', $mail)->first();
+    }
+
+    public function create($data)
+    {
+        return $this->model->create($data);
+    }
+
+    public function findUserByOtp($otp)
+    {
+        return $this->model->where('otp', $otp)->first();
     }
 }

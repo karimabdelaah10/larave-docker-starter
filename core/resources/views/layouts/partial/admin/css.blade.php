@@ -1,3 +1,4 @@
+@stack('top-css')
 <!-- BEGIN: Vendor CSS-->
 <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/vendors.min.css">
 <link rel="stylesheet" type="text/css" href="/dashboard_assets/css/apexcharts.css">

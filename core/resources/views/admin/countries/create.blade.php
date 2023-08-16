@@ -2,20 +2,6 @@
 @push('title')
     {{ @$pageTitle ?? " " }}
 @endpush
-@push('css')
-    <style>
-        .form-check {
-            display: inline-block !important;
-            margin: 0 30px 0 0 !important;
-        }
-
-        fieldset {
-            border: 1px solid #e2e2e2;
-            padding: 10px;
-            border-radius: 5px;
-        }
-    </style>
-@endpush
 @section('content')
     <section id="multiple-column-form">
         <div class="row">
@@ -47,6 +33,6 @@
     </section>
 @endsection
 @push('js')
-    <script src="/dashboard_assets/js/select2.full.min.js"></script>
-    <script src="/dashboard_assets/js/form-select2.min.js"></script>
+    {{--    <script src="/dashboard_assets/js/select2.full.min.js"></script>--}}
+    {{--    <script src="/dashboard_assets/js/form-select2.min.js"></script>--}}
 @endpush

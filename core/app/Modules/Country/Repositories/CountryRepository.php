@@ -15,17 +15,37 @@ class CountryRepository
         }
     }
 
-    public function list($pagination = false)
+    public function list($pagination = false, $active = false)
     {
-        $query = $this->model->latest();
-        if ($pagination) {
-            return $query->paginate(env('DEFAULT_PER_PAGE') ?? 10);
-        }
-        return $query->get();
+        return $this->model
+            ->latest()
+            ->filterable()
+            ->when($active, function ($query) {
+                return $query->active();
+            })
+            ->when($pagination, function ($quer) {
+                return $quer->paginate(request()->per_page ?? env('DEFAULT_PER_PAGE'));
+            }, function ($que) {
+                return $que->get();
+            });
     }
 
     public function create($data)
     {
-        $this->model->create($data);
+        return $this->model->create($data);
+    }
+
+    public function update($data, $id)
+    {
+        return $this->model->findOrFail($id)->update($data);
+    }
+
+    public function findOrFail($id)
+    {
+        return $this->model->findOrFail($id);
+    }
+    public function delete($id)
+    {
+        return $this->model->findOrFail($id)->delete();
     }
 }
